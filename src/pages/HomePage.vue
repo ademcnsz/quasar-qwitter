@@ -193,7 +193,6 @@ export default defineComponent({
           };
           this.tweets.unshift(newTweet);
           this.newTweetContent = "";
-          window.location.reload();
           console.log("refresh edildi");
         })
         .catch((e) => {
