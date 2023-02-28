@@ -64,8 +64,8 @@
 
             <q-item-section>
               <q-item-label
-                ><strong>Anonymous</strong>
-                <span class="text-grey-7 q-ml-sm">@anonymous</span>
+                ><strong>Maskülen Fare</strong>
+                <span class="text-grey-7 q-ml-sm">@maskulenfare</span>
               </q-item-label>
               <q-item-label> {{ tweet.content }} </q-item-label>
               <div class="row justify-between q-mt-md">
