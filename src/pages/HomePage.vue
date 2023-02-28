@@ -102,8 +102,8 @@
             </q-item-section>
 
             <q-item-section side top>
-              {{ formatTime(tweet.date)  }}
-              {{ tweet.date }}
+              {{ formatTime(tweet.date) }}
+              <!-- {{ tweet.date }} -->
             </q-item-section>
           </q-item>
         </transition-group>
@@ -115,8 +115,8 @@
 
 <script>
 import { defineComponent } from "vue";
-import { formatDistance, subDays } from "date-fns";
-import moment from "moment";
+// import { formatDistance, subDays } from "date-fns";
+// import moment from "moment";
 import axios from "axios";
 
 export default defineComponent({
@@ -135,6 +135,35 @@ export default defineComponent({
     },
   },
   methods: {
+
+    formatTime(props) {
+      const now = Date.now();
+      const diff = now - props;
+      const diffSeconds = Math.round(diff / 1000);
+      const diffMinutes = Math.round(diff / (1000 * 60));
+      const diffHours = Math.round(diff / (1000 * 60 * 60));
+      const diffDays = Math.round(diff / (1000 * 60 * 60 * 24));
+
+      if (diffSeconds < 60) {
+        return 'şimdi';
+      } else if (diffMinutes < 60) {
+        return `${diffMinutes} dakika önce`;
+      } else if (diffHours < 24) {
+        return `${diffHours} saat önce`;
+      } else if (diffDays == 1) {
+        return 'dün';
+      } else if (diffDays < 7) {
+        return `${diffDays} gün önce`;
+      } else {
+        const date = new Date(props);
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const year = date.getFullYear().toString();
+        const formattedDate = `${day}/${month}/${year}`;
+        return formattedDate;
+      }
+}
+    ,
     getData() {
       this.tweets.splice(0, this.tweets.length);
       axios
@@ -198,9 +227,7 @@ export default defineComponent({
     },
   },
   computed: {
-    formatTime(props) {
-      return moment(props).fromNow();
-    },
+
     getList() {
       return this.tweets;
     },

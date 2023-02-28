@@ -79,56 +79,42 @@
       <q-list class="" separator bordered padding>
         <q-item class="q-pa-md">
           <q-item-section class="">
-            <q-item-label class="text-gray" size="2rem"
-              >Gündemdekiler</q-item-label
+            <q-item-label class="text-grey " size="2rem"
+              >Siyaset · Gündemdekiler</q-item-label
             >
             <q-item-label class="text-weight-bold"
-              >Single line item</q-item-label
+              >Mansur Yavaş</q-item-label
             >
             <q-item-label caption
-              >Secondary line text. Lorem ipsum dolor sit amet, consectetur
-              adipiscit elit.</q-item-label
+              >28.6 B tweet</q-item-label
             >
           </q-item-section>
 
-          <q-item-section side top>
-            <q-item-label caption>5 min ago</q-item-label>
+        </q-item>
+        <q-item class="q-pa-md">
+          <q-item-section>
+            <q-item-label class="text-grey" size="2rem"
+              >Siyaset · Gündemdekiler</q-item-label
+            >
+            <q-item-label class="text-weight-bold"
+              >#istifa</q-item-label
+            >
+            <q-item-label caption
+              >256 B tweet</q-item-label
+            >
           </q-item-section>
         </q-item>
         <q-item class="q-pa-md">
           <q-item-section>
-            <q-item-label class="text-gray" size="2rem"
-              >Gündemdekiler</q-item-label
+            <q-item-label class="text-grey" size="2rem"
+              >Spor · Gündemdekiler</q-item-label
             >
             <q-item-label class="text-weight-bold"
-              >Single line item</q-item-label
+              >Ali Koç</q-item-label
             >
             <q-item-label caption
-              >Secondary line text. Lorem ipsum dolor sit amet, consectetur
-              adipiscit elit.</q-item-label
+              >32.7 B tweet</q-item-label
             >
-          </q-item-section>
-
-          <q-item-section side top>
-            <q-item-label caption>18 min ago</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item class="q-pa-md">
-          <q-item-section>
-            <q-item-label class="text-gray" size="2rem"
-              >Gündemdekiler</q-item-label
-            >
-            <q-item-label class="text-weight-bold"
-              >Single line item</q-item-label
-            >
-            <q-item-label caption
-              >Secondary line text. Lorem ipsum dolor sit amet, consectetur
-              adipiscit elit.</q-item-label
-            >
-          </q-item-section>
-
-          <q-item-section side top>
-            <q-item-label caption>36 min ago</q-item-label>
           </q-item-section>
         </q-item>
       </q-list>
