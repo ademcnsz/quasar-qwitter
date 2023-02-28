@@ -124,9 +124,7 @@ export default defineComponent({
   data() {
     return {
       newTweetContent: "",
-      tweets: [
-
-      ],
+      tweets: [],
     };
   },
   filters: {
@@ -135,7 +133,6 @@ export default defineComponent({
     },
   },
   methods: {
-
     formatTime(props) {
       const now = Date.now();
       const diff = now - props;
@@ -145,25 +142,24 @@ export default defineComponent({
       const diffDays = Math.round(diff / (1000 * 60 * 60 * 24));
 
       if (diffSeconds < 60) {
-        return 'şimdi';
+        return "şimdi";
       } else if (diffMinutes < 60) {
         return `${diffMinutes} dakika önce`;
       } else if (diffHours < 24) {
         return `${diffHours} saat önce`;
       } else if (diffDays == 1) {
-        return 'dün';
+        return "dün";
       } else if (diffDays < 7) {
         return `${diffDays} gün önce`;
       } else {
         const date = new Date(props);
-        const day = date.getDate().toString().padStart(2, '0');
-        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const day = date.getDate().toString().padStart(2, "0");
+        const month = (date.getMonth() + 1).toString().padStart(2, "0");
         const year = date.getFullYear().toString();
         const formattedDate = `${day}/${month}/${year}`;
         return formattedDate;
       }
-}
-    ,
+    },
     getData() {
       this.tweets.splice(0, this.tweets.length);
       axios
@@ -179,6 +175,7 @@ export default defineComponent({
             };
             this.tweets.unshift(tweetsGet);
           }
+          window.location.reload();
         });
     },
     addNewTweet() {
@@ -195,7 +192,7 @@ export default defineComponent({
             date: Date.now(),
           };
           this.tweets.unshift(newTweet);
-          this.newTweetContent = ""
+          this.newTweetContent = "";
           console.log(this.tweets);
         })
         .catch((e) => {
@@ -227,7 +224,6 @@ export default defineComponent({
     },
   },
   computed: {
-
     getList() {
       return this.tweets;
     },
