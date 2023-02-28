@@ -67,6 +67,7 @@ border-color : $gray4 -->
 import { defineComponent } from 'vue'
 import {formatDistance,subDays} from 'date-fns'
 import moment from 'moment';
+import axios from "axios"
 
 export default defineComponent({
   name: 'HomePage',
@@ -74,8 +75,8 @@ export default defineComponent({
     return{
       newTweetContent:'',
       tweets:[
-      {content:"Janet-- I'll be in your neighborhood doing errands thisweekend. Do you want to grab brunch?" , date: "1677497881612"},
-      {content:"Janet-- I'll be in your neighborhood doing errands thisweekend. Do you want to grab brunch?" , date: "1677498060754"},
+      // {content:"Janet-- I'll be in your neighborhood doing errands thisweekend. Do you want to grab brunch?" , date: "1677497881612"},
+      // {content:"Janet-- I'll be in your neighborhood doing errands thisweekend. Do you want to grab brunch?" , date: "1677498060754"},
     ],
     }
   },
@@ -86,26 +87,66 @@ export default defineComponent({
   },
   methods:{
     addNewTweet(){
-      let newTweet ={
-        content:this.newTweetContent,
-        date: Date.now()
-      }
-        this.tweets.unshift(newTweet)
-        this.newTweetContent=''
+        axios
+        .post(
+          "https://adem-quasar-todolist-default-rtdb.firebaseio.com/tweets.json",
+          { content: this.newTweetContent , date : Date.now()}
+        )
+        .then((response) => {
+          let newTweet ={
+          content:this.newTweetContent,
+          date: Date.now()
+        }
+          this.tweets.unshift(newTweet)
+          this.newTweetContent=''
+        })
+        .catch((e) => {
+          console.log(e);
+        });
 
     }
     ,
     deleteTweet(props){
-       let dateToDelete = props.date
-       let index = this.tweets.findIndex(tweet => tweet.date === dateToDelete)
-       this.tweets.splice(index,1)
-    }
+      console.log(props.id);
+       axios
+        .delete(
+          "https://adem-quasar-todolist-default-rtdb.firebaseio.com/tweets/" +
+            props.id +
+            ".json"
+        )
+        .then((response) => {
+          console.log("başarılı döndü");
+          let dateToDelete = props.date
+          let index = this.tweets.findIndex(tweet => tweet.date === dateToDelete)
+          this.tweets.splice(index,1)
+        })
+        .catch((e) => {
+          console.log(e);
+        });
 
+    }
+    ,
   },
   computed: {
     formatTime(props) {
       return moment(props).fromNow();
     },
+  },
+  mounted() {
+    axios
+      .get(
+        "https://adem-quasar-todolist-default-rtdb.firebaseio.com/tweets.json"
+      )
+      .then((response) => {
+        for (let key in response.data) {
+          let tweetsGet = {
+            id: key,
+            content: response.data[key].content,
+            date: response.data[key].date,
+          };
+          this.tweets.push(tweetsGet);
+        }
+      });
   },
 })
 </script>
