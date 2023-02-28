@@ -57,15 +57,15 @@
             <q-item-section avatar top>
               <q-avatar>
                 <img
-                  src="https://pbs.twimg.com/profile_images/1579971252277723136/6viwe3VO_400x400.jpg"
+                  src="https://www.ankailaclama.com/media/k2/items/cache/fare_5903e58ddedd4_XL.jpg"
                 />
               </q-avatar>
             </q-item-section>
 
             <q-item-section>
               <q-item-label
-                ><strong>Adem Cansız</strong>
-                <span class="text-grey-7 q-ml-sm">@ademmcansiz</span>
+                ><strong>Anonymous</strong>
+                <span class="text-grey-7 q-ml-sm">@anonymous</span>
               </q-item-label>
               <q-item-label> {{ tweet.content }} </q-item-label>
               <div class="row justify-between q-mt-md">
