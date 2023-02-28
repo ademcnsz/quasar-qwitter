@@ -16,7 +16,7 @@
             <template v-slot:before>
               <q-avatar size="xl">
                 <img
-                  src="https://pbs.twimg.com/profile_images/1579971252277723136/6viwe3VO_400x400.jpg"
+                  src="https://www.ankailaclama.com/media/k2/items/cache/fare_5903e58ddedd4_XL.jpg"
                 />
               </q-avatar>
             </template>
