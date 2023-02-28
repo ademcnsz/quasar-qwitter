@@ -174,8 +174,9 @@ export default defineComponent({
               date: response.data[key].date,
             };
             this.tweets.unshift(tweetsGet);
+            
           }
-          window.location.reload();
+
         });
     },
     addNewTweet() {
