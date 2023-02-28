@@ -174,10 +174,9 @@ export default defineComponent({
               date: response.data[key].date,
             };
             this.tweets.unshift(tweetsGet);
-            
           }
-
         });
+
     },
     addNewTweet() {
       axios
@@ -195,6 +194,8 @@ export default defineComponent({
           this.tweets.unshift(newTweet);
           this.newTweetContent = "";
           console.log(this.tweets);
+          window.location.reload();
+          console.log("refresh edildi");
         })
         .catch((e) => {
           console.log(e);
@@ -227,6 +228,8 @@ export default defineComponent({
   computed: {
     getList() {
       return this.tweets;
+
+
     },
   },
   mounted() {
